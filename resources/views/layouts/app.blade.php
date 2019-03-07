@@ -55,7 +55,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/tasks') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
