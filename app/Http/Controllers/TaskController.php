@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\TaskRepository;
 use Illuminate\Http\Request;
+
+use App\Repositories\TaskRepository;
+use App\Task;
 
 class TaskController extends Controller
 {
@@ -56,5 +58,17 @@ class TaskController extends Controller
         ]);
 
         return redirect('/tasks');
+    }
+
+    /**
+     * Destroy the give task.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  Task                      $task
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Request $request, Task $task)
+    {
+        $task->delete();
     }
 }
