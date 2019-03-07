@@ -21,3 +21,6 @@ Route::get('/home', 'HomeController@index');
 Route::get('/users', 'UserController@index');
 
 Route::get('/get-users', 'UserController@users');
+
+Route::get('/tasks', 'TaskController@index');
+Route::post('/task', 'TaskController@store');

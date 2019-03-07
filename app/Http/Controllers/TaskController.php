@@ -17,6 +17,18 @@ class TaskController extends Controller
     }
 
     /**
+     * Displaying a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        $tasks = $request->user()->tasks()->get();
+
+        return view('tasks.index', compact('tasks'));
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
