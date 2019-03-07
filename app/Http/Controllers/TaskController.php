@@ -32,6 +32,6 @@ class TaskController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect('tasks.index');
+        return redirect('/tasks');
     }
 }
