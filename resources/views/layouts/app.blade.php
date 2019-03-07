@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="MyApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,6 +22,11 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    
+    <script src="{{ asset('/js/app.js') }}"></script>
+    <script src="{{ asset('/js/lib/angularjs-1.7.7.min.js') }}"></script>
+    <script src="{{ asset('/js/main.js') }}"></script>
+    <script src="{{ asset('/js/userCtrl.js') }}"></script>
 </head>
 <body>
     <div id="app">
@@ -83,8 +88,5 @@
 
         @yield('content')
     </div>
-
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
 </body>
 </html>
