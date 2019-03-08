@@ -20,7 +20,9 @@
         }
 
         $scope.delete = function (task) {
-            $http.delete();
+            $http.delete($scope.url + '/' + task).then(function () {
+                $scope.getTasks();
+            });
         }
 
         $scope.getTasks();
