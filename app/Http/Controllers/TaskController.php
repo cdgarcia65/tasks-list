@@ -44,14 +44,27 @@ class TaskController extends Controller
     /**
      * Get list of the tasks for a given user.
      *
-     * @param  Request $request
-     * @return Illuminate\Http\JsonResponse
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getTasks(Request $request)
     {
         $tasks = $this->tasks->forUser($request->user());
 
         return response()->json(compact('tasks'));
+    }
+
+    /**
+     * Get list of the completed tasks for a given user.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getCompletedTasks(Request $request)
+    {
+        $completed = $this->tasks->completedForUser($request->user());
+
+        return response()->json(compact('completed'));
     }
 
     /**

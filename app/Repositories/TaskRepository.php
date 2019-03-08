@@ -18,4 +18,18 @@ class TaskRepository
             ->orderBy('created_at', 'desc')
             ->get();
     }
+
+    /**
+     * Get all of the completed tasks for a given user.
+     *
+     * @param  User $user
+     * @return Collection
+     */
+    public function completedForUser(User $user)
+    {
+        return $user->tasks()
+            ->onlyTrashed()
+            ->orderBy('deleted_at')
+            ->get();
+    }
 }

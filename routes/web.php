@@ -28,3 +28,4 @@ Route::delete('/tasks/{task}', 'TaskController@destroy');
 
 // Route to get tasks list in a json response.
 Route::get('/tasks/get', 'TaskController@getTasks');
+Route::get('/tasks/get-completed', 'TaskController@getCompletedTasks');
