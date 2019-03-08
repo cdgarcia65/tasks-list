@@ -26,6 +26,10 @@
         .fa-btn {
             margin-left: 6px;
         }
+
+        .cursor {
+            cursor: pointer;
+        }
     </style>
 
     <!-- Scripts -->

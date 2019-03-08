@@ -15,9 +15,12 @@
 
         $scope.getTasks = function () {
             $http.get($scope.url + '/get').then(function (response) {
-                console.log(response);
                 $scope.tasks = response.data.tasks;
             });
+        }
+
+        $scope.delete = function (task) {
+            $http.delete();
         }
 
         $scope.getTasks();

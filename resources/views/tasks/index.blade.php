@@ -47,21 +47,10 @@
                                 <th>&nbsp;</th>
                             </thead>
                             <tbody>
-                                @foreach ($tasks as $task)
-                                    <tr>
-                                        <td>{{ $task->name }}</td>
-                                        <td>
-                                            <!-- Delete Button -->
-                                            <form action="{{ url("task/{$task->id}") }}" method="POST">
-                                                {{ csrf_field() }}
-                                                {{ method_field('DELETE') }}
-                                                <button type="submit" id="delete-task-{{ $task->id }}" class="btn btn-danger">
-                                                    <i class="fa fa-btn fa-trash"></i> Delete
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                <tr ng-repeat='task in tasks' class="cursor" ng-click="delete(task.id)" title="Marsk as complete">
+                                    <td>@{{ task.name }}</td>
+                                    <td></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
