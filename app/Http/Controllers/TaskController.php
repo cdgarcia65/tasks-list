@@ -99,4 +99,21 @@ class TaskController extends Controller
 
         $task->delete();
     }
+
+    /**
+     * Uncomplete the given task.
+     *
+     * @param  Task                      $task
+     * @return \Illuminate\Http\Response
+     */
+    public function update($task)
+    {
+        $task = Task::withTrashed()
+            ->where('id', $task)
+            ->first();
+
+        $this->authorize('destroy', $task);
+
+        $task->restore();
+    }
 }

@@ -68,7 +68,7 @@
                             <th>&nbsp;</th>
                         </thead>
                         <tbody>
-                            <tr ng-repeat='task in completedTasks' class="cursor" ng-click="delete(task.id)" title="Marsk as completeted">
+                            <tr ng-repeat='task in completedTasks' class="cursor" ng-click="uncomplete(task.id)" title="Marsk as uncompleteted">
                                 <td><del>@{{ task.name }}</del></td>
                                 <td></td>
                             </tr>

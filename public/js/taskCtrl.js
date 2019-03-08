@@ -9,6 +9,8 @@
                 name: $scope.name
             }).then(function (response) {
                 $scope.getTasks();
+                $scope.getCompletedTasks();
+                $scope.name = '';
             }, function (error) {
                 console.log(error, $scope.name);
             });
@@ -29,6 +31,14 @@
         $scope.complete = function (task) {
             $http.delete($scope.url + '/' + task).then(function () {
                 $scope.getTasks();
+                $scope.getCompletedTasks();
+            });
+        }
+
+        $scope.uncomplete = function (task) {
+            $http.get($scope.url + '/' + task + '/uncomplete').then(function () {
+                $scope.getTasks();
+                $scope.getCompletedTasks();
             });
         }
 
