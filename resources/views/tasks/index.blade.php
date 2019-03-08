@@ -34,11 +34,13 @@
                     </form>
                 </div>
             </div>
-
+        </div>
+        
+        <div class="col-sm-6">
             <!-- Current Tasks -->
             @if (count($tasks))
-                <div class="panel panel-default">
-                    <div class="panel panel-heading">Current Tasks</div>
+                <div class="panel panel-danger">
+                    <div class="panel-heading"><i class="fa fa-tasks"></i> Current Tasks</div>
 
                     <div class="panel-body">
                         <table class="table table-striped task-table">
@@ -56,7 +58,26 @@
                     </div>
                 </div>
             @endif
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-success">
+                <div class="panel-heading"><i class="fa fa-tasks"></i> Task Completed</div>
 
+                <div class="panel-body">
+                    <table class="table table-striped task-table">
+                        <thead>
+                            <th>Tasks</th>
+                            <th>&nbsp;</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat='task in tasks' class="cursor" ng-click="delete(task.id)" title="Marsk as completeted">
+                                <td><del>@{{ task.name }}</del></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
