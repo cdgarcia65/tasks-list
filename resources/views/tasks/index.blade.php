@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container" ng-controller="taskCtrl">
         <div class="col-sm-offset-2 col-sm-8">
             <div class="panel panel-default">
                 <div class="panel-heading">New task</div>
@@ -11,7 +11,7 @@
                     @include('common.errors')
 
                     <!-- New Task Form -->
-                    <form action="{{ url('task') }}" method="POST" class="form-horizontal">
+                    <form name="taskForm" ng-submit="taskForm.$valid && store()" class="form-horizontal" novalidate>
                         {{ csrf_field() }}
 
                         <!-- Task Name -->
@@ -19,7 +19,7 @@
                             <label for="task-name" class="col-sm-3 control-label">Task</label>
 
                             <div class="col-sm-6">
-                                <input type="text" name="name" id="task-name" class="form-control" value="{{ old('name') }}">
+                                <input type="text" ng-model="name" id="task-name" class="form-control" value="{{ old('name') }}">
                             </div>
                         </div>
 

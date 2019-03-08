@@ -42,6 +42,19 @@ class TaskController extends Controller
     }
 
     /**
+     * Get list of the tasks for a given user.
+     *
+     * @param  Request $request
+     * @return Illuminate\Http\JsonResponse
+     */
+    public function getTasks(Request $request)
+    {
+        $tasks = $this->tasks->forUser($request->user());
+
+        return response()->json(compact('tasks'));
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -53,11 +66,11 @@ class TaskController extends Controller
             'name' => 'required|max:255'
         ]);
 
-        $request->user()->tasks()->create([
+        $task = $request->user()->tasks()->create([
             'name' => $request->name,
         ]);
 
-        return redirect('/tasks');
+        return response()->json(compact('task'));
     }
 
     /**

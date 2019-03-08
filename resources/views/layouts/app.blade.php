@@ -35,10 +35,11 @@
         ]); ?>
     </script>
     
+    <script src="{{ asset('/js/lib/angularjs-1.7.7.min.js') }}"></script>    
     <script src="{{ asset('/js/app.js') }}"></script>
-    <script src="{{ asset('/js/lib/angularjs-1.7.7.min.js') }}"></script>
     <script src="{{ asset('/js/main.js') }}"></script>
     <script src="{{ asset('/js/userCtrl.js') }}"></script>
+    <script src="{{ asset('/js/taskCtrl.js') }}"></script>
 </head>
 <body>
     <div id="app">
