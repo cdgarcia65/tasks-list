@@ -17,7 +17,7 @@ class TaskPolicy
      * @param  Task $task
      * @return bool
      */
-    public function destroy(User $user, Task $task)
+    public function complete(User $user, Task $task)
     {
         return $user->id === $task->user_id;
     }

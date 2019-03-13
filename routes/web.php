@@ -24,8 +24,8 @@ Route::get('/get-users', 'UserController@users');
 
 Route::get('/tasks', 'TaskController@index');
 Route::post('/tasks', 'TaskController@store');
-Route::delete('/tasks/{task}', 'TaskController@destroy');
-Route::get('/tasks/{task}/uncomplete', 'TaskController@update');
+Route::delete('/tasks/{task}', 'TaskController@complete');
+Route::get('/tasks/{task}/uncomplete', 'TaskController@uncomplete');
 
 // Route to get tasks list in a json response.
 Route::get('/tasks/get', 'TaskController@getTasks');

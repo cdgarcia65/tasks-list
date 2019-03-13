@@ -93,9 +93,9 @@ class TaskController extends Controller
      * @param  Task                      $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Task $task)
+    public function complete(Request $request, Task $task)
     {
-        $this->authorize('destroy', $task);
+        $this->authorize('complete', $task);
 
         $task->delete();
     }
@@ -106,13 +106,13 @@ class TaskController extends Controller
      * @param  Task                      $task
      * @return \Illuminate\Http\Response
      */
-    public function update($task)
+    public function uncomplete($task)
     {
         $task = Task::withTrashed()
             ->where('id', $task)
             ->first();
 
-        $this->authorize('destroy', $task);
+        $this->authorize('complete', $task);
 
         $task->restore();
     }
