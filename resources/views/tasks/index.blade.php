@@ -39,16 +39,18 @@
         <div class="col-sm-6">
             <!-- Current Tasks -->
             <div class="panel panel-danger">
-                <div class="panel-heading"><i class="fa fa-tasks"></i> Current Tasks</div>
+                <div class="panel-heading">Current Tasks</div>
 
                 <div class="panel-body">
                     <table class="table table-striped task-table">
                         <thead>
+                            <th>&nbsp;</th>
                             <th>Tasks</th>
                             <th>&nbsp;</th>
                         </thead>
                         <tbody>
                             <tr ng-repeat='task in tasks' class="cursor" ng-click="complete(task.id)" title="Marsk as completed">
+                                <td><i class="fa fa-tasks"></i></td>
                                 <td>@{{ task.name }}</td>
                                 <td></td>
                             </tr>
@@ -59,16 +61,18 @@
         </div>
         <div class="col-sm-6">
             <div class="panel panel-success">
-                <div class="panel-heading"><i class="fa fa-check"></i> Task Completed</div>
+                <div class="panel-heading">Task Completed</div>
 
                 <div class="panel-body">
                     <table class="table table-striped task-table">
                         <thead>
+                            <th>&nbsp;</th>
                             <th>Tasks</th>
                             <th>&nbsp;</th>
                         </thead>
                         <tbody>
                             <tr ng-repeat='task in completedTasks' class="cursor" ng-click="uncomplete(task.id)" title="Marsk as uncompleteted">
+                                <td><i class="fa fa-check"></i></td>
                                 <td><del>@{{ task.name }}</del></td>
                                 <td></td>
                             </tr>
