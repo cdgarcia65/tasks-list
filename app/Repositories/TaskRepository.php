@@ -29,7 +29,7 @@ class TaskRepository
     {
         return $user->tasks()
             ->onlyTrashed()
-            ->orderBy('deleted_at')
+            ->orderBy('deleted_at', 'desc')
             ->get();
     }
 }
