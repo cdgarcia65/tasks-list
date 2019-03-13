@@ -26,4 +26,15 @@ class Task extends Model
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Get tasks completed today.
+     */
+    public function scopeToday()
+    {
+        return $this->whereBetween('deleted_at', [
+            date("Y-m-d H:i:s", mktime(0, 0, 0)),
+            date("Y-m-d H:i:s", mktime(23, 59, 59))
+        ]);
+    }
+
 }

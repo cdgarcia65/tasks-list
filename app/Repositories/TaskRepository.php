@@ -28,6 +28,7 @@ class TaskRepository
     public function completedForUser(User $user)
     {
         return $user->tasks()
+            ->today()
             ->onlyTrashed()
             ->orderBy('deleted_at', 'desc')
             ->get();
